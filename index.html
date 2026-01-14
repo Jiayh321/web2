@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JYH实时聊天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        body {
+            background: url("bg.jpg") no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        /* 核心容器：透明背景 + 居中 */
+        .chat-entrance {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: rgba(0, 0, 0, 0.2); /* 透明背景 */
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            max-width: 80%; /* 适配背景文字 */
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        /* 图像：固定大小 + 居中 */
+        .chat-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            display: block;
+        }
+
+        /* 按钮：适配样式 */
+        .join-btn {
+            padding: 15px 40px;
+            font-size: 20px; /* 放大按钮文字 */
+            color: white;
+            background-color: #4285f4;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .join-btn:hover {
+            background-color: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        }
+
+        /* 底部信息：透明文字框 + 居中 */
+        .info-section {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.2); /* 透明背景 */
+            backdrop-filter: blur(5px);
+            padding: 15px 20px;
+            border-radius: 8px;
+            width: 80%;
+        }
+
+        /* 联系方式文字：放大 */
+        .contact {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* 注意事项：红色文字 + 放大 */
+        .notice {
+            font-size: 16px;
+            color: #ff4444;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- 核心容器：图像+按钮 -->
+    <div class="chat-entrance">
+        <img src="chat-icon.jpg" alt="聊天图标" class="chat-img">
+        <button class="join-btn" id="joinChatBtn">点击加入聊天</button>
+    </div>
+
+    <!-- 底部信息：联系方式+注意事项 -->
+    <div class="info-section">
+        <div class="contact">联系方式：vswvqrjxur@rommiui.com</div>
+        <div class="notice">注意：本网站内容均来自网络，仅测试学习使用，不进行任何形式的盈利及商业活动，且源代码已经开源</div>
+    </div>
+
+    <script>
+        const joinBtn = document.getElementById('joinChatBtn');
+        const chatServerUrl = 'http://194.164.194.118:11319';
+        joinBtn.addEventListener('click', () => {
+            window.location.href = chatServerUrl;
+        });
+    </script>
+</body>
+</html>
